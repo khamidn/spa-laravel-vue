@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/posts/update/{id?}', 'PostsController@update')->name('posts.update');
+Route::resource('/posts', 'PostsController')->except('create', 'edit', 'update');
+
+
